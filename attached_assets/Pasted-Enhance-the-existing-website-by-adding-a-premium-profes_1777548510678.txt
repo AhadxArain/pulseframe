@@ -1,0 +1,122 @@
+Enhance the existing website by adding a premium, professional chatbot system UI similar to HubSpot / Intercom.
+
+This is NOT a basic chat widget.
+This must feel like a mini SaaS interface inside the website.
+
+🎯 OBJECTIVE
+
+Create a chatbot that:
+
+Looks high-end and modern
+Works perfectly on all screen sizes
+Feels like a real product (even if static)
+Matches the website’s dark cinematic design
+🧩 CORE STRUCTURE
+1. CHAT LAUNCHER (IMPORTANT)
+Position: bottom-right
+Size: 56–64px desktop, ~50px mobile
+Style:
+Circular button
+Neon red glow (brand color)
+Subtle pulse animation (ONLY once on load)
+2. CHAT WINDOW (DESKTOP)
+Floating panel:
+Width: ~380px
+Height: ~550px
+Rounded corners + shadow
+Dark theme matching site
+3. MOBILE BEHAVIOR (CRITICAL)
+
+On mobile:
+
+Chat must open in full-screen mode
+Include:
+Top bar with back/close button
+No floating small box
+🧠 CHAT UI STRUCTURE (HUBSPOT STYLE)
+A. HOME SCREEN (DEFAULT VIEW)
+
+When opened:
+
+Display:
+
+Title: “How can we help?”
+Subtitle (short, professional)
+
+Show options as buttons:
+
+“Start a conversation”
+“View previous chats”
+B. CHAT HISTORY VIEW
+List of previous conversations (static placeholders)
+Each item:
+Title
+Timestamp
+Click opens conversation
+C. NEW CHAT VIEW
+Header:
+Bot name (e.g. “EchoFrame Assistant”)
+Status: “Online”
+Chat area:
+Message bubbles (bot + user style)
+Static welcome message
+Input area:
+Text input
+Send button
+Placeholder: “Type your message…”
+🎨 DESIGN REQUIREMENTS
+Dark UI (#050505)
+Neon red accents
+Clean typography (Inter)
+Soft glow effects
+
+Message bubbles:
+
+Bot: left, subtle gray
+User: right, red accent
+⚡ INTERACTIONS
+Smooth open/close animation
+Hover effects on buttons
+Scrollable chat area
+Clean transitions between:
+Home
+Chat
+History
+📱 RESPONSIVENESS
+
+Ensure:
+
+Touch-friendly elements (min 44px)
+No overflow issues
+Smooth scrolling
+🧱 TECH STRUCTURE
+Component-based:
+ChatLauncher
+ChatWindow
+ChatHome
+ChatHistory
+ChatConversation
+
+Keep code modular and clean.
+
+🚫 STRICT RULES
+
+DO NOT:
+
+Add backend logic
+Add real AI responses
+Overcomplicate UI
+Break existing website layout
+
+This is UI only (static structure).
+
+💎 QUALITY CHECK
+
+Before finishing:
+
+Does it feel like a SaaS product?
+Does it match HubSpot-level UI quality?
+Is mobile experience clean and full-screen?
+Does it visually match the main website?
+
+If not → refine.

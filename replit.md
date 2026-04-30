@@ -37,6 +37,15 @@ Premium dark/cinematic portfolio website for a US audio-visual creative studio (
 
 **Sections**: Navbar, Hero, Services (4 cards w/ desktop-only 3D tilt), Portfolio (6 user-supplied YouTube embeds), About, Process (3-step), Contact, Footer.
 
+**Chat widget** (HubSpot/Intercom-style, static UI only — no backend):
+- Lives in `src/components/chat/`: `ChatLauncher` (state owner), `ChatWindow` (panel + view router), `ChatHome`, `ChatHistory`, `ChatConversation`
+- Mounted in `Home.tsx` after `<Footer />`
+- Floating launcher: 60px desktop / 52px mobile, `bottom-6 right-6`, neon red glow shadow, one-time double-ping pulse on load (2.4s), morphs to X icon when open
+- Desktop: floating panel 380×560 anchored bottom-right with rounded-2xl + shadow + red corner glow
+- Mobile: full-screen `inset-0` (launcher hidden when open since panel has its own close X)
+- Three views with AnimatePresence slide transitions: Home (CTAs + studio hours), History (4 static threads w/ unread indicator), Conversation (EchoFrame Assistant w/ bot+user bubbles, working local input, send button)
+- Escape key closes panel; safe-area-inset padding on mobile
+
 **Motion system** (Awwwards-level cinematic feel):
 - Shared easings/variants in `src/lib/motion.ts` (`easeExpo`, `fadeUp`, `staggerParentSlow`, `wordRise`)
 - Hero: animated aurora gradients (`aurora-drift` keyframes), word-by-word stagger headline reveal, parallax background + content

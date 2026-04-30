@@ -9,6 +9,7 @@ import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import Grain from "@/components/effects/Grain";
 import SectionDivider from "@/components/effects/SectionDivider";
+import ChatLauncher from "@/components/chat/ChatLauncher";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
           <Contact />
         </main>
         <Footer />
+        <ChatLauncher />
       </div>
     </SmoothScroll>
   );

@@ -1,0 +1,141 @@
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { ArrowRight } from "lucide-react";
+
+export default function Contact() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-20%" });
+  const { toast } = useToast();
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate network request
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: "Transmission received.",
+        description: "We'll be in touch shortly.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    }, 1000);
+  };
+
+  return (
+    <section id="contact" ref={sectionRef} className="py-32 relative bg-background border-t border-white/5 overflow-hidden">
+      {/* Decorative Glow */}
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none translate-x-1/3 translate-y-1/3" />
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-[1px] bg-primary" />
+              <span className="font-display tracking-widest text-primary uppercase text-sm font-semibold">Initiate</span>
+            </div>
+            
+            <h2 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-8">
+              Let's make <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/50">some noise.</span>
+            </h2>
+            
+            <p className="text-xl text-muted-foreground font-light mb-12 max-w-md">
+              Ready to elevate your brand's audio-visual presence? Tell us about your project.
+            </p>
+
+            <div className="space-y-6">
+              <div>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Direct Line</p>
+                <a href="mailto:hello@pulseandframe.com" className="text-2xl font-display text-white hover:text-primary transition-colors duration-300 flex items-center gap-2 group">
+                  hello@pulseandframe.com
+                  <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </a>
+              </div>
+              
+              <div>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Studio</p>
+                <p className="text-lg text-white font-light">
+                  Los Angeles, CA<br />
+                  <span className="text-muted-foreground">Available Worldwide</span>
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          >
+            <form onSubmit={handleSubmit} className="bg-card/30 backdrop-blur-sm border border-white/5 p-8 md:p-12">
+              <div className="space-y-8">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-xs uppercase tracking-widest text-muted-foreground font-display">Name / Company</label>
+                  <Input
+                    id="name"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="bg-transparent border-0 border-b border-white/20 rounded-none px-0 py-4 text-white focus-visible:ring-0 focus-visible:border-primary text-lg"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-xs uppercase tracking-widest text-muted-foreground font-display">Email Address</label>
+                  <Input
+                    id="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="bg-transparent border-0 border-b border-white/20 rounded-none px-0 py-4 text-white focus-visible:ring-0 focus-visible:border-primary text-lg"
+                    placeholder="hello@company.com"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-xs uppercase tracking-widest text-muted-foreground font-display">Project Details</label>
+                  <Textarea
+                    id="message"
+                    required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="bg-transparent border-0 border-b border-white/20 rounded-none px-0 py-4 text-white focus-visible:ring-0 focus-visible:border-primary text-lg min-h-[150px] resize-none"
+                    placeholder="Tell us what you're looking for..."
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full font-display font-medium uppercase tracking-wider text-sm rounded-none bg-primary text-white hover:bg-white hover:text-black transition-all duration-500 py-8 mt-4 hover:shadow-[0_0_30px_rgba(255,42,42,0.4)]"
+                >
+                  {isSubmitting ? "Sending..." : "Submit Request"}
+                </Button>
+              </div>
+            </form>
+          </motion.div>
+
+        </div>
+      </div>
+    </section>
+  );
+}

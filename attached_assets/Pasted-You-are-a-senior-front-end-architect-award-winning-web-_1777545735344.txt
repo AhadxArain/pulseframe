@@ -1,0 +1,147 @@
+You are a senior front-end architect + award-winning web designer specializing in high-end creative agency websites.
+
+Your task is to build a production-level, premium portfolio website for a US-based audio-visual creative studio.
+
+🎯 OBJECTIVE
+
+Create a website that:
+
+Looks like a $10,000+ agency website
+Feels cinematic, modern, and premium
+Converts visitors into leads (not just looks good)
+
+This is NOT a template project.
+This must feel like a real creative studio brand.
+
+🧠 CONTEXT (VERY IMPORTANT)
+
+Business type:
+Audio-first creative studio offering:
+
+Custom jingles
+Soundtracks
+Commercial audio
+Video production (including 3D and cinematic visuals)
+
+Key differentiator:
+→ Combines artist-level creativity + commercial production
+
+Target audience:
+
+US business owners
+Brands
+Marketing agencies
+🎨 DESIGN SYSTEM
+
+Theme:
+Dark, cinematic, futuristic
+
+Colors:
+
+Background: #050505
+Primary Accent: #ff2a2a (neon glow)
+Text: white / gray
+
+Typography:
+
+Headings: Orbitron or Sora
+Body: Inter
+⚡ UX & INTERACTIONS
+
+You MUST implement:
+
+Smooth scrolling (Lenis or equivalent)
+Subtle parallax effects
+Soft glow hover effects
+Scroll-based fade-in animations
+Light 3D tilt effect on cards ONLY
+
+Constraints:
+
+Do NOT overuse animations
+Avoid heavy 3D scenes
+Keep everything smooth and premium
+🧩 SITE STRUCTURE
+1. HERO
+Cinematic dark background
+Headline:
+“Sound That Sells. Visuals That Stick.”
+Subtext explaining value clearly
+CTA buttons:
+View Work
+Get a Quote
+2. SERVICES (4 CARDS)
+Audio Branding
+Commercial Production
+Video & 3D Content
+Custom Projects
+
+Each card must have:
+
+Icon
+Short description
+Hover glow effect
+3. PORTFOLIO
+Grid layout
+Embed YouTube videos
+Each item:
+Thumbnail
+Title
+Play overlay
+4. ABOUT
+
+Position as:
+“Artist-driven creative studio”
+
+Explain:
+
+Custom work
+Creative + business blend
+End-to-end production
+5. PROCESS
+
+3 steps:
+
+Concept
+Production
+Delivery
+6. CONTACT
+
+Include:
+
+Contact form (name, email, message)
+Email CTA
+Strong closing line
+🧱 TECH STACK
+React (Vite)
+Tailwind CSS
+Framer Motion
+⚙️ IMPLEMENTATION REQUIREMENTS
+Fully responsive (mobile-first)
+Clean component structure
+Reusable components
+Proper spacing and layout hierarchy
+No placeholder-looking UI
+🚫 STRICT RULES (IMPORTANT)
+
+DO NOT:
+
+Use generic templates
+Use default Tailwind look
+Overcrowd UI
+Add unnecessary sections
+💎 QUALITY STANDARD
+
+Before finishing, internally verify:
+
+Does this look like a premium agency site?
+Is spacing clean and intentional?
+Is typography hierarchy strong?
+Does it feel cinematic and modern?
+
+If NOT → refine before output.
+
+📦 OUTPUT FORMAT
+Provide full working project code
+Organize files properly
+Include instructions to run

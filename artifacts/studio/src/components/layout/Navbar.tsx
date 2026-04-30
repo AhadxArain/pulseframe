@@ -37,10 +37,10 @@ export default function Navbar() {
           : "bg-transparent py-6"
       }`}
     >
-      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="container mx-auto px-5 sm:px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
         <div
-          className="font-display font-bold text-xl tracking-wider uppercase cursor-pointer relative group"
+          className="font-display font-bold text-base sm:text-xl tracking-wider uppercase cursor-pointer relative group"
           onClick={() => scrollTo("#hero")}
         >
           <span className="text-white group-hover:text-primary transition-colors duration-300">Pulse</span>
@@ -73,25 +73,26 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white hover:text-primary transition-colors"
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          className="md:hidden text-white hover:text-primary transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 top-[72px] bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 top-[64px] sm:top-[72px] bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-6 transition-all duration-500 md:hidden ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col items-center gap-8">
+        <ul className="flex flex-col items-center gap-2 w-full px-6">
           {navItems.map((item) => (
-            <li key={item.name}>
+            <li key={item.name} className="w-full max-w-xs">
               <button
                 onClick={() => scrollTo(item.href)}
-                className="text-2xl font-display font-medium text-white hover:text-primary transition-colors duration-300"
+                className="w-full min-h-[56px] text-2xl font-display font-medium text-white hover:text-primary transition-colors duration-300 py-3"
               >
                 {item.name}
               </button>
@@ -100,7 +101,7 @@ export default function Navbar() {
         </ul>
         <Button
           onClick={() => scrollTo("#contact")}
-          className="mt-4 font-display font-medium uppercase tracking-wider text-sm rounded-none bg-primary text-white hover:bg-white hover:text-black transition-all duration-300 px-8 py-6"
+          className="mt-4 font-display font-medium uppercase tracking-wider text-sm rounded-none bg-primary text-white hover:bg-white hover:text-black transition-all duration-300 px-10 py-6 min-h-[52px]"
         >
           Get a Quote
         </Button>

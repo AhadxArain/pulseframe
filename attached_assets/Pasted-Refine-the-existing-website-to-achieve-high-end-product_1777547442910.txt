@@ -1,0 +1,150 @@
+Refine the existing website to achieve high-end, production-level responsiveness across all screen sizes.
+
+Do NOT rebuild the UI.
+Preserve all design, animations, colors, and structure.
+
+Your task is to optimize layout, spacing, typography, and components for all devices.
+
+🎯 OBJECTIVE
+
+The site must look intentional and premium on every screen size, not just “working”.
+
+📱 BREAKPOINT SYSTEM (MANDATORY)
+
+Use a mobile-first approach with these breakpoints:
+
+Mobile: default (<640px)
+Tablet: sm (640px+)
+Laptop: md (768px+)
+Desktop: lg (1024px+)
+Large Desktop: xl (1280px+)
+🧩 SECTION-BY-SECTION REQUIREMENTS
+1. NAVBAR
+
+Mobile:
+
+Convert to hamburger menu
+Full-screen overlay menu
+Large clickable items (min 44px height)
+
+Desktop:
+
+Horizontal layout (keep current style)
+2. HERO SECTION
+
+Mobile:
+
+Reduce headline size (but keep impact)
+Stack content vertically
+Center-align text
+Buttons full-width or stacked
+
+Desktop:
+
+Keep original layout
+Maintain strong visual hierarchy
+3. SERVICES SECTION
+
+Mobile:
+
+1 column
+
+Tablet:
+
+2 columns
+
+Desktop:
+
+4 columns
+
+Ensure:
+
+Equal spacing
+Cards don’t feel cramped
+4. PORTFOLIO (VIDEOS)
+
+Mobile:
+
+1 column
+
+Tablet:
+
+2 columns
+
+Desktop:
+
+3 columns
+
+Ensure:
+
+Proper aspect ratio (16:9)
+No overflow or cut edges
+5. ABOUT SECTION
+
+Mobile:
+
+Stack vertically
+
+Desktop:
+
+Split layout (text + content side-by-side)
+6. PROCESS SECTION
+
+Mobile:
+
+Vertical steps
+
+Desktop:
+
+Horizontal steps
+7. CONTACT SECTION
+
+Mobile:
+
+Full-width inputs
+Comfortable spacing
+Easy typing UX
+🎨 TYPOGRAPHY SCALING
+
+Use responsive font sizes:
+
+Headings:
+Mobile: smaller but bold
+Desktop: large and cinematic
+Body text:
+Must remain readable (16px minimum)
+
+Avoid fixed pixel sizes—use responsive Tailwind classes.
+
+📏 SPACING SYSTEM
+Increase padding/margins on larger screens
+Maintain consistent spacing scale
+Avoid cramped layouts on mobile
+⚡ INTERACTION ADJUSTMENTS
+Reduce heavy animations on mobile
+Keep hover effects desktop-only
+Ensure smooth performance on low-end devices
+🚫 STRICT RULES
+
+DO NOT:
+
+Break layout structure
+Cause horizontal scrolling
+Let elements overflow screen
+Make text too small to read
+Over-stack everything without spacing
+💎 QUALITY CHECK (MANDATORY)
+
+Before finishing, verify:
+
+Does the site feel premium on mobile?
+Is spacing clean on all devices?
+Is typography readable everywhere?
+Does layout adapt intelligently (not just shrink)?
+
+If not → refine before output.
+
+📦 OUTPUT
+Update existing code only
+Keep components clean and reusable
+Ensure responsiveness is applied consistently

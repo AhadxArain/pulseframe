@@ -24,7 +24,7 @@ export default function Process() {
   const isInView = useInView(sectionRef, { once: true, margin: "-20%" });
 
   return (
-    <section id="process" ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 relative bg-background border-t border-white/5">
+    <section id="process" ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 relative bg-background">
       <div className="container mx-auto px-5 sm:px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

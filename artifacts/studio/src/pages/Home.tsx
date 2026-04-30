@@ -7,18 +7,26 @@ import Process from "@/components/sections/Process";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import Grain from "@/components/effects/Grain";
+import SectionDivider from "@/components/effects/SectionDivider";
 
 export default function Home() {
   return (
     <SmoothScroll>
       <div className="relative min-h-screen bg-background text-foreground overflow-hidden selection:bg-primary/30 selection:text-white font-sans">
+        <Grain />
         <Navbar />
         <main>
           <Hero />
+          <SectionDivider />
           <Services />
+          <SectionDivider />
           <Portfolio />
+          <SectionDivider />
           <About />
+          <SectionDivider />
           <Process />
+          <SectionDivider />
           <Contact />
         </main>
         <Footer />

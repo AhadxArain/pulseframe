@@ -37,6 +37,18 @@ Premium dark/cinematic portfolio website for a US audio-visual creative studio (
 
 **Sections**: Navbar, Hero, Services (4 cards w/ desktop-only 3D tilt), Portfolio (6 user-supplied YouTube embeds), About, Process (3-step), Contact, Footer.
 
+**Motion system** (Awwwards-level cinematic feel):
+- Shared easings/variants in `src/lib/motion.ts` (`easeExpo`, `fadeUp`, `staggerParentSlow`, `wordRise`)
+- Hero: animated aurora gradients (`aurora-drift` keyframes), word-by-word stagger headline reveal, parallax background + content
+- Signature audio touches: `Waveform` component (animated bars), used in Hero badge — `keyframes waveform-bar`
+- Cinematic film grain via `Grain` component (SVG noise + mix-blend-overlay)
+- Section transitions: `SectionDivider` component with sweeping gradient line
+- Micro-interactions: `.btn-magnetic` utility (scale 1.03 + glow on hover, pointer:fine only) + `.btn-shimmer` light sweep
+- Service cards: 3D tilt + cursor-following radial light spot + top accent line on hover
+- Portfolio cards: 1.08 zoom, crimson radial wash, pulsing play ring (`.pulse-ring`), corner index badge, "Watch Reel" reveal
+- Navbar: scroll-spy active link tracking via IntersectionObserver, accent dot per active item, stronger backdrop blur on scroll
+- All hover/3D effects gated behind `(hover: hover) and (pointer: fine)` and `prefers-reduced-motion: reduce` honored globally
+
 **Responsive system** (mobile-first, sm 640 / md 768 / lg 1024 / xl 1280):
 - Section vertical padding: `py-20 sm:py-24 md:py-28 lg:py-32`
 - Container horizontal padding: `px-5 sm:px-6 md:px-12`

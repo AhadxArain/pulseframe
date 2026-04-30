@@ -6,7 +6,7 @@ export default function About() {
   const isInView = useInView(sectionRef, { once: true, margin: "-20%" });
 
   return (
-    <section id="about" ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 relative bg-background border-t border-white/5 overflow-hidden">
+    <section id="about" ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 relative bg-background overflow-hidden">
       {/* Decorative Blur */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 

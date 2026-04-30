@@ -34,7 +34,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 relative bg-background border-t border-white/5 overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 relative bg-background overflow-hidden">
       {/* Decorative Glow */}
       <div className="absolute bottom-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none translate-x-1/3 translate-y-1/3" />
 
@@ -126,9 +126,10 @@ export default function Contact() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full font-display font-medium uppercase tracking-wider text-sm rounded-none bg-primary text-white hover:bg-white hover:text-black transition-all duration-500 py-6 sm:py-8 mt-4 min-h-[56px] hover:shadow-[0_0_30px_rgba(255,42,42,0.4)]"
+                  className="btn-magnetic w-full font-display font-medium uppercase tracking-wider text-sm rounded-none bg-primary text-white hover:bg-white hover:text-black transition-all duration-500 py-6 sm:py-8 mt-4 min-h-[56px] relative overflow-hidden"
                 >
-                  {isSubmitting ? "Sending..." : "Submit Request"}
+                  <span className="relative z-10">{isSubmitting ? "Sending..." : "Submit Request"}</span>
+                  <span aria-hidden className="btn-shimmer" />
                 </Button>
               </div>
             </form>

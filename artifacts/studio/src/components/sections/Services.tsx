@@ -28,6 +28,7 @@ const services = [
 
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const spotRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -37,15 +38,20 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -10;
-    const rotateY = ((x - centerX) / centerX) * 10;
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
 
-    cardRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    cardRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+
+    if (spotRef.current) {
+      spotRef.current.style.background = `radial-gradient(420px circle at ${x}px ${y}px, hsl(var(--primary) / 0.18), transparent 45%)`;
+    }
   };
 
   const handleMouseLeave = () => {
     if (!cardRef.current) return;
-    cardRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+    cardRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+    if (spotRef.current) spotRef.current.style.background = "transparent";
   };
 
   return (
@@ -53,20 +59,30 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.9, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
       className="group perspective-1000"
     >
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="transition-transform duration-200 ease-out will-change-transform h-full"
+        className="transition-transform duration-300 ease-out will-change-transform h-full"
       >
-        <Card className="relative h-full bg-card/50 backdrop-blur-sm border-border/50 p-6 sm:p-7 lg:p-8 rounded-none overflow-hidden group-hover:border-primary/50 transition-colors duration-500 flex flex-col items-start gap-5 sm:gap-6">
-          {/* Hover Glow Effect */}
+        <Card className="relative h-full bg-card/50 backdrop-blur-sm border-border/50 p-6 sm:p-7 lg:p-8 rounded-none overflow-hidden group-hover:border-primary/50 group-hover:shadow-[0_24px_60px_-25px_hsl(var(--primary)/0.55)] transition-all duration-500 flex flex-col items-start gap-5 sm:gap-6">
+          {/* Cursor-following light spot */}
+          <div
+            ref={spotRef}
+            aria-hidden="true"
+            className="absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+          />
+
+          {/* Subtle gradient base */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/10 group-hover:via-primary/5 group-hover:to-transparent transition-all duration-700 opacity-0 group-hover:opacity-100 pointer-events-none" />
 
-          <div className="p-3 sm:p-4 rounded-none bg-background border border-white/10 group-hover:border-primary/30 group-hover:shadow-[0_0_20px_rgba(255,42,42,0.3)] transition-all duration-500 relative z-10">
+          {/* Top corner accent line */}
+          <div aria-hidden className="absolute top-0 left-0 h-[1px] w-0 group-hover:w-full bg-gradient-to-r from-primary via-primary/60 to-transparent transition-all duration-700 ease-out" />
+
+          <div className="p-3 sm:p-4 rounded-none bg-background border border-white/10 group-hover:border-primary/40 group-hover:shadow-[0_0_24px_rgba(255,42,42,0.35)] transition-all duration-500 relative z-10">
             <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white group-hover:text-primary transition-colors duration-500" />
           </div>
 

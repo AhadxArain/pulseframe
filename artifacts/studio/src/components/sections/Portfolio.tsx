@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Play } from "lucide-react";
+import { easeExpo, fadeUp, inViewOnce } from "@/lib/motion";
 
 type Video = {
   id: string;
@@ -21,32 +22,55 @@ function VideoCard({ video, index }: { video: Video; index: number }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative aspect-video w-full overflow-hidden rounded-xl bg-card/20 cursor-pointer ring-1 ring-white/5 transition-all duration-500 hover:ring-primary/40 hover:shadow-[0_0_40px_-8px_hsl(var(--primary)/0.5)]"
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.9, delay: (index % 3) * 0.12, ease: easeExpo }}
+      className="group relative aspect-video w-full overflow-hidden rounded-xl bg-card/20 cursor-pointer ring-1 ring-white/5 transition-all duration-700 hover:ring-primary/50 hover:shadow-[0_24px_60px_-20px_hsl(var(--primary)/0.55)]"
       onClick={() => setIsPlaying(true)}
     >
       {!isPlaying ? (
         <>
+          {/* Thumbnail with subtle zoom */}
           <img
             src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
             alt={video.title}
             loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out"
+            className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-[1.08] transition-transform duration-[1400ms] ease-out will-change-transform"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/30 group-hover:from-black/70 group-hover:via-black/10 group-hover:to-black/0 transition-colors duration-500 z-10" />
-          <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-8">
-            <div className="flex justify-end">
-              <div className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:scale-110 group-hover:bg-primary group-hover:border-primary group-hover:shadow-[0_0_28px_hsl(var(--primary)/0.7)] transition-all duration-500">
-                <Play className="w-5 h-5 text-white ml-0.5" fill="currentColor" />
+
+          {/* Base contrast gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/30 transition-opacity duration-700 z-10" />
+
+          {/* Hover crimson wash */}
+          <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_50%_60%,hsl(var(--primary)/0.22),transparent_70%)] mix-blend-screen pointer-events-none" />
+
+          {/* Corner accent */}
+          <div aria-hidden className="absolute top-3 left-3 z-20 flex items-center gap-1.5 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]" />
+            <span className="text-[10px] font-display tracking-[0.2em] text-primary uppercase">{String(index + 1).padStart(2, "0")}</span>
+          </div>
+
+          {/* Play button — center, with pulse rings */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+            <div className="relative pulse-ring">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 flex items-center justify-center bg-black/40 backdrop-blur-md group-hover:scale-110 group-hover:bg-primary group-hover:border-primary group-hover:shadow-[0_0_44px_hsl(var(--primary)/0.7)] transition-all duration-500">
+                <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-0.5" fill="currentColor" />
               </div>
             </div>
-            <div>
-              <h3 className="text-white font-display text-xl md:text-2xl font-bold tracking-tight">
+          </div>
+
+          {/* Title block — slides up subtly on hover */}
+          <div className="absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6 md:p-8 flex items-end justify-between gap-4">
+            <div className="transform transition-transform duration-700 ease-out group-hover:-translate-y-1">
+              <h3 className="text-white font-display text-lg sm:text-xl md:text-2xl font-bold tracking-tight">
                 {video.title}
               </h3>
+              <div className="overflow-hidden mt-1 h-[14px]">
+                <span className="block text-[10px] font-display tracking-[0.25em] uppercase text-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  Watch Reel
+                </span>
+              </div>
             </div>
           </div>
         </>
@@ -67,15 +91,15 @@ function VideoCard({ video, index }: { video: Video; index: number }) {
 
 export default function Portfolio() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-20%" });
+  const isInView = useInView(sectionRef, inViewOnce);
 
   return (
-    <section id="portfolio" ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 relative bg-background border-t border-white/5">
+    <section id="portfolio" ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 relative bg-background">
       <div className="container mx-auto px-5 sm:px-6 md:px-12 relative z-10 mb-12 sm:mb-16 lg:mb-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          variants={fadeUp}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
           className="max-w-2xl"
         >
           <div className="flex items-center gap-4 mb-5 sm:mb-6">

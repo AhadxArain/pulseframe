@@ -2,46 +2,21 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Play } from "lucide-react";
 
-const portfolioItems = [
-  {
-    id: "dQw4w9WgXcQ",
-    title: "Aurora — National TV Spot",
-    category: "Commercial Production",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-  },
-  {
-    id: "ScMzIvxBSi4",
-    title: "Halcyon — Brand Anthem",
-    category: "Audio Branding",
-    thumbnail: "https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
-  },
-  {
-    id: "9bZkp7q19f0",
-    title: "Velocity — Product Launch",
-    category: "Video & 3D Content",
-    thumbnail: "https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg",
-  },
-  {
-    id: "6stlCkUDG_s",
-    title: "Neon Echoes — Experiential",
-    category: "Custom Projects",
-    thumbnail: "https://img.youtube.com/vi/6stlCkUDG_s/maxresdefault.jpg",
-  },
-  {
-    id: "jNQXAC9IVRw",
-    title: "Midnight Drive — Automotive",
-    category: "Soundtrack",
-    thumbnail: "https://img.youtube.com/vi/jNQXAC9IVRw/maxresdefault.jpg",
-  },
-  {
-    id: "kJQP7kiw5Fk",
-    title: "Prism — Fashion Campaign",
-    category: "Commercial Production",
-    thumbnail: "https://img.youtube.com/vi/kJQP7kiw5Fk/maxresdefault.jpg",
-  },
+type Video = {
+  id: string;
+  title: string;
+};
+
+const videos: Video[] = [
+  { id: "uw4OjKOMp-k", title: "Project 1" },
+  { id: "nMpmMhUcsuY", title: "Project 2" },
+  { id: "Z989xTasigg", title: "Project 3" },
+  { id: "cR6Y5uNzcA8", title: "Project 4" },
+  { id: "v4RNEQ2uZ8I", title: "Project 5" },
+  { id: "6dqgzx-Bgso", title: "Project 6" },
 ];
 
-function PortfolioItem({ item, index }: { item: typeof portfolioItems[0]; index: number }) {
+function VideoCard({ video, index }: { video: Video; index: number }) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -50,42 +25,41 @@ function PortfolioItem({ item, index }: { item: typeof portfolioItems[0]; index:
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative aspect-video w-full overflow-hidden bg-card/20 cursor-pointer"
+      className="group relative aspect-video w-full overflow-hidden rounded-xl bg-card/20 cursor-pointer ring-1 ring-white/5 transition-all duration-500 hover:ring-primary/40 hover:shadow-[0_0_40px_-8px_hsl(var(--primary)/0.5)]"
       onClick={() => setIsPlaying(true)}
     >
       {!isPlaying ? (
         <>
-          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10" />
-          <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-8 opacity-100 group-hover:opacity-0 transition-opacity duration-500">
+          <img
+            src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+            alt={video.title}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/30 group-hover:from-black/70 group-hover:via-black/10 group-hover:to-black/0 transition-colors duration-500 z-10" />
+          <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-8">
             <div className="flex justify-end">
-              <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center bg-black/30 backdrop-blur-sm group-hover:scale-110 group-hover:bg-primary group-hover:border-primary transition-all duration-500">
-                <Play className="w-4 h-4 text-white ml-1" />
+              <div className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:scale-110 group-hover:bg-primary group-hover:border-primary group-hover:shadow-[0_0_28px_hsl(var(--primary)/0.7)] transition-all duration-500">
+                <Play className="w-5 h-5 text-white ml-0.5" fill="currentColor" />
               </div>
             </div>
             <div>
-              <p className="text-primary font-display text-xs tracking-widest uppercase mb-2">
-                {item.category}
-              </p>
-              <h3 className="text-white font-display text-2xl font-bold">
-                {item.title}
+              <h3 className="text-white font-display text-xl md:text-2xl font-bold tracking-tight">
+                {video.title}
               </h3>
             </div>
           </div>
-          <img
-            src={item.thumbnail}
-            alt={item.title}
-            className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out"
-          />
         </>
       ) : (
         <iframe
           className="absolute inset-0 w-full h-full"
-          src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1&rel=0&modestbranding=1`}
-          title={item.title}
+          src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1`}
+          title={video.title}
+          loading="lazy"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe>
+        />
       )}
     </motion.div>
   );
@@ -115,10 +89,12 @@ export default function Portfolio() {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
-        {portfolioItems.map((item, index) => (
-          <PortfolioItem key={item.id} item={item} index={index} />
-        ))}
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {videos.map((video, index) => (
+            <VideoCard key={video.id} video={video} index={index} />
+          ))}
+        </div>
       </div>
     </section>
   );

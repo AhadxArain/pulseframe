@@ -1,0 +1,159 @@
+Refine the existing homepage layout.
+
+The current homepage has a Hero section followed immediately by the Footer, which creates a large empty gap and weak user experience.
+
+🚫 STRICT RULES (DO NOT BREAK)
+DO NOT modify the Hero section in any way
+DO NOT modify the Footer
+DO NOT change colors, fonts, spacing system, or animations already used
+DO NOT redesign existing components
+
+You are ONLY allowed to insert new sections BETWEEN the Hero and the Footer
+
+🎯 OBJECTIVE
+
+Add high-quality, premium sections that:
+
+Improve content depth
+Maintain the existing dark cinematic design
+Feel consistent with the current UI system
+🧩 ADD THE FOLLOWING SECTIONS IN EXACT ORDER
+1. STATS TICKER BAR
+Full-width horizontal bar
+Background: #111
+Height: slim (not bulky)
+
+Content:
+
+Single-line auto-scrolling marquee (infinite loop)
+Direction: left → right
+Smooth, slow speed (premium feel)
+
+Text:
+"50+ PROJECTS DELIVERED ✦ 3+ YEARS IN THE INDUSTRY ✦ 100% CUSTOM MADE ✦ AUDIO · VIDEO · 3D · BILLBOARD ✦ US-BASED · AVAILABLE WORLDWIDE ✦"
+
+Styling:
+
+All caps
+White text
+Divider symbols in red
+Clean spacing between phrases
+2. SERVICES SNAPSHOT
+
+Layout:
+
+Clean, minimal, NOT card-based
+Use horizontal rows
+
+Header:
+
+Label (small, red): "WHAT WE DO"
+Heading:
+Line 1 (white): "Every Brand Deserves"
+Line 2 (gray): "A Signature Sound."
+
+Content:
+
+3 horizontal rows with separators
+
+Each row contains:
+
+Red number (01, 02, 03)
+Bold service title
+One-line description
+Thin bottom border divider
+
+Services:
+
+01 Audio Branding — Jingles, sonic logos, custom soundtracks built for your brand.
+02 Video & 3D Production — Cinematic visuals, 4K actor shoots, motion graphics.
+03 Billboard & Campaign — Full-scale marketing from audio to outdoor advertising.
+
+Footer:
+
+Bottom-right aligned red link:
+"VIEW ALL SERVICES →"
+3. FEATURED WORK PREVIEW
+
+Header:
+
+Label (red): "SELECTED WORKS"
+Heading:
+"Proof of" (white)
+"Impact." (gray)
+
+Content:
+
+3 items in a row (desktop)
+Use dark placeholder boxes (NOT YouTube embeds here)
+Add subtle watermark-style branding (OZZYRA-style aesthetic)
+
+Each item:
+
+Project name (white)
+Category tag (red, small)
+
+Footer:
+
+Red link below:
+"VIEW ALL WORK →"
+4. FEATURED TESTIMONIAL (PULL QUOTE STYLE)
+Full-width section
+Background: #0f0f0f
+
+Design:
+
+Large decorative red quotation mark (left side or background)
+Clean centered or slightly offset layout
+
+Content:
+
+5 red stars above the quote
+
+Quote:
+"OZZYRA completely transformed how our brand sounds. The jingle they created for our campaign was immediately recognizable. We saw a 40% increase in brand recall within the first month."
+
+Client:
+Marcus J. — CEO, Vertx Agency
+
+5. BOTTOM CTA BANNER
+Full-width section
+Background: #ff2020
+
+Layout:
+
+Horizontal split (responsive)
+
+Left:
+
+Bold white heading:
+"Ready to Make Some Noise?"
+
+Right:
+
+Black button:
+"GET A QUOTE →"
+
+Constraints:
+
+Tight spacing (no excessive padding)
+Strong contrast
+Clear call-to-action
+📱 RESPONSIVENESS RULES
+Mobile:
+Stack all sections vertically
+Maintain spacing clarity
+Tablet:
+Adjust grids to 2 columns where needed
+Desktop:
+Keep clean horizontal layouts
+💎 QUALITY CHECK
+
+Before finishing, verify:
+
+Sections feel integrated, not added randomly
+Spacing is consistent with existing design
+Typography hierarchy is preserved
+Layout looks premium across all screen sizes
+
+If not → refine before output.

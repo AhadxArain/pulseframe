@@ -35,7 +35,7 @@ Premium dark/cinematic portfolio website for a US audio-visual creative studio (
 
 **Stack**: React + Vite + Tailwind v4 + Framer Motion + Lenis (smooth scroll) + shadcn/ui + wouter.
 
-**Sections**: Navbar, Hero, Services (4 cards w/ desktop-only 3D tilt), Portfolio (6 user-supplied YouTube embeds), About, Process (3-step), Contact, Footer.
+**Sections**: Navbar, Hero, Services (4 cards w/ desktop-only 3D tilt), Portfolio (6 user-supplied YouTube embeds), TrustedBy (infinite marquee), Testimonials (3 cards), About, Process (3-step), Contact, Footer.
 
 **Chat widget** (HubSpot/Intercom-style, static UI only — no backend):
 - Lives in `src/components/chat/`: `ChatLauncher` (state owner), `ChatWindow` (panel + view router), `ChatHome`, `ChatHistory`, `ChatConversation`

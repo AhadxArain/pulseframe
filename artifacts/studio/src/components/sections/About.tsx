@@ -24,7 +24,7 @@ export default function About() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6 sm:mb-8">
-              Artist-driven creative.<br />
+              Artist driven creative.<br />
               <span className="text-muted-foreground">Commercial execution.</span>
             </h2>
 
@@ -36,7 +36,7 @@ export default function About() {
                 We operate differently. We are an independent, artist-led studio that brings genuine creative vision to commercial projects. Think of us as a high-end recording studio crossed with a boutique film post-house.
               </p>
               <p>
-                From custom cinematic soundtracks to immersive 3D motion design, we handle end-to-end production. No middlemen, no safe choices—just uncompromising quality that makes your audience feel something.
+                From custom cinematic soundtracks to immersive 3D motion design, we handle end-to-end production. No middlemen, no safe choices just uncompromising quality that makes your audience feel something.
               </p>
             </div>
 

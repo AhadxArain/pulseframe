@@ -2,6 +2,8 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import Portfolio from "@/components/sections/Portfolio";
+import TrustedBy from "@/components/sections/TrustedBy";
+import Testimonials from "@/components/sections/Testimonials";
 import About from "@/components/sections/About";
 import Process from "@/components/sections/Process";
 import Contact from "@/components/sections/Contact";
@@ -23,6 +25,8 @@ export default function Home() {
           <Services />
           <SectionDivider />
           <Portfolio />
+          <TrustedBy />
+          <Testimonials />
           <SectionDivider />
           <About />
           <SectionDivider />

@@ -1,0 +1,134 @@
+Refine the existing Services page.
+
+Currently, the page contains a heading and 4 service cards, followed by a large empty space before the footer.
+
+🚫 STRICT RULES (DO NOT BREAK)
+DO NOT modify the existing heading
+DO NOT modify the 4 service cards
+DO NOT change layout, spacing system, colors, typography, or animations
+DO NOT refactor existing components
+
+You are ONLY allowed to add new sections BELOW the 4 cards and ABOVE the footer
+
+🎯 OBJECTIVE
+
+Eliminate empty space and extend the page with high-quality, structured sections that match the existing premium dark UI.
+
+🧩 ADD THE FOLLOWING SECTIONS IN EXACT ORDER
+1. SERVICE DETAIL ROWS
+
+Create 3 full-width horizontal rows, each representing a core service.
+
+Layout:
+Alternating structure:
+Row 1 → Text left / Visual right
+Row 2 → Visual left / Text right
+Row 3 → Text left / Visual right
+Full-width sections
+Dark background (slightly elevated from base if needed)
+Thin red top border for each row
+ROW 1 — AUDIO BRANDING
+
+Heading:
+"Your Brand Has a Sound."
+
+Body:
+Jingles, sonic logos, and personalized soundtracks crafted for commercials, social media, and in-store experiences.
+
+Icon:
+Waveform-style visual (minimal, modern)
+
+CTA:
+Small inline red link:
+→ GET A QUOTE
+
+ROW 2 — VIDEO & 3D PRODUCTION
+
+Heading:
+"Visuals That Command Attention."
+
+Body:
+4K cinematic shoots with actors, advanced 3D motion graphics, and high-end color grading for impactful visuals.
+
+Icon:
+Film frame / video-style visual
+
+CTA:
+→ GET A QUOTE
+
+ROW 3 — MARKETING CAMPAIGNS
+
+Heading:
+"From Audio to Billboard."
+
+Body:
+End-to-end campaign production including radio ads, digital marketing content, and large-scale billboard advertising.
+
+Icon:
+Megaphone-style visual
+
+CTA:
+→ GET A QUOTE
+
+2. WHY CHOOSE US SECTION
+Header:
+Label (red): "WHY CHOOSE US"
+Heading:
+"Not a Template." (white)
+"Never a Compromise." (gray)
+Content Layout:
+4 horizontal feature pills (responsive grid)
+
+Items:
+
+100% Custom-Made
+No Middlemen
+Fast Turnaround
+US-Based, Global Reach
+Pill Design:
+
+Each pill must have:
+
+Dark background
+Thin red left border
+Bold white title
+Smaller gray subtext (optional short descriptor)
+Clean spacing and alignment
+3. BOTTOM CTA BANNER
+Full-width section
+Background: #ff2020 (red)
+
+Layout:
+
+Horizontal (responsive)
+
+Left:
+"Have a project in mind?" (white, bold)
+
+Right:
+Black button:
+"LET’S TALK →"
+
+Constraints:
+Keep spacing tight and impactful (no excessive padding)
+Maintain strong contrast
+Match homepage CTA styling exactly
+📱 RESPONSIVENESS RULES
+Mobile:
+Stack all layouts vertically
+Maintain readability and spacing
+Tablet:
+Use 2-column layouts where appropriate
+Desktop:
+Preserve alternating row structure
+💎 QUALITY CHECK
+
+Before finishing, verify:
+
+No empty space remains between cards and footer
+New sections visually match existing design system
+Layout feels intentional, not appended
+Typography hierarchy is consistent
+Spacing is balanced across all screen sizes
+
+If anything feels off → refine before output.

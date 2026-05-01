@@ -35,6 +35,21 @@ Premium dark/cinematic portfolio website for a US audio-visual creative studio (
 
 **Stack**: React + Vite + Tailwind v4 + Framer Motion + Lenis (smooth scroll) + shadcn/ui + wouter.
 
+**Architecture**: Multi-page SPA with wouter routing. Each route renders a single section inside `PageLayout`.
+
+| Route | Page file | Section(s) |
+|---|---|---|
+| `/` | `Home.tsx` | Hero |
+| `/services` | `ServicesPage.tsx` | Services |
+| `/work` | `WorkPage.tsx` | Portfolio + TrustedBy + Testimonials |
+| `/studio` | `StudioPage.tsx` | About |
+| `/process` | `ProcessPage.tsx` | Process |
+| `/contact` | `ContactPage.tsx` | Contact |
+
+**PageLayout** (`components/layout/PageLayout.tsx`): shared wrapper for all pages — mounts Grain, Navbar, Footer, ChatLauncher, SmoothScroll, 0.3s fade-in `motion.main`, sets `document.title`, and calls `window.scrollTo(0)` on route change.
+
+**Navbar**: route-based active state via `useLocation()` from wouter. Logo and all nav items use `<Link>` for SPA navigation. Mobile menu auto-closes on route change.
+
 **Sections**: Navbar, Hero, Services (4 cards w/ desktop-only 3D tilt), Portfolio (6 user-supplied YouTube embeds), TrustedBy (infinite marquee), Testimonials (3 cards), About, Process (3-step), Contact, Footer.
 
 **Chat widget** (HubSpot/Intercom-style, static UI only — no backend):

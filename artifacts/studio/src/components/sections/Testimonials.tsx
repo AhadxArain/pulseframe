@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { fadeUp, inViewOnce, staggerParent } from "@/lib/motion";
+import { fadeInUp, inViewOnce, staggerContainer } from "@/lib/motion";
 
 const STARS = Array.from({ length: 5 });
 
@@ -48,15 +48,15 @@ export default function Testimonials() {
     <section ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 bg-[#0f0f0f]">
       <div className="container mx-auto px-5 sm:px-6 md:px-12">
         <motion.div
-          variants={staggerParent}
+          variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={isInView ? "show" : "hidden"}
           className="mb-12 sm:mb-16"
         >
-          <motion.p variants={fadeUp} className="text-[10px] tracking-[0.22em] uppercase text-primary font-semibold mb-4">
+          <motion.p variants={fadeInUp} className="text-[10px] tracking-[0.22em] uppercase text-primary font-semibold mb-4">
             What Clients Say
           </motion.p>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-tight">
+          <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-tight">
             <span className="text-white">Results That Speak.</span>
             <br />
             <span className="text-white/45">For themselves.</span>
@@ -64,15 +64,15 @@ export default function Testimonials() {
         </motion.div>
 
         <motion.div
-          variants={staggerParent}
+          variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={isInView ? "show" : "hidden"}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
         >
           {REVIEWS.map((r) => (
             <motion.div
               key={r.name}
-              variants={fadeUp}
+              variants={fadeInUp}
               className="group relative flex flex-col p-6 sm:p-7 bg-[#1a1a1a] border border-white/[0.07] border-l-[2px] border-l-primary hover:border-primary/40 hover:shadow-[0_0_40px_-10px_rgba(255,42,42,0.25)] transition-all duration-500"
             >
               <StarRow />

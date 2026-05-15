@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
-import { easeExpo, inViewOnce } from "@/lib/motion";
+import { fadeInUp, inViewOnce, staggerContainer } from "@/lib/motion";
 
 const ROWS = [
   {
@@ -23,17 +23,15 @@ const ROWS = [
 ];
 
 export default function ServicesSnapshot() {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, inViewOnce);
-
   return (
-    <section ref={ref} className="py-20 sm:py-24 md:py-28 lg:py-32 bg-background">
+    <section className="py-20 sm:py-24 md:py-28 lg:py-32 bg-background">
       <div className="container mx-auto px-5 sm:px-6 md:px-12">
-        {/* Header */}
+        {/* Header (Static) */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-          transition={{ duration: 0.8, ease: easeExpo }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={inViewOnce}
           className="mb-12 sm:mb-16"
         >
           <p className="text-[10px] tracking-[0.22em] uppercase text-primary font-semibold mb-4">
@@ -46,14 +44,18 @@ export default function ServicesSnapshot() {
           </h2>
         </motion.div>
 
-        {/* Service Rows */}
-        <div className="border-t border-white/10">
+        {/* Service Rows (Static) */}
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={inViewOnce}
+          className="border-t border-white/10"
+        >
           {ROWS.map((row, i) => (
             <motion.div
               key={row.num}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.7, ease: easeExpo, delay: 0.1 + i * 0.1 }}
+              variants={fadeInUp}
               className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 py-6 sm:py-7 border-b border-white/10 hover:border-primary/30 transition-colors duration-300"
             >
               <span className="text-[13px] font-bold text-primary font-display tracking-wider shrink-0 w-8">
@@ -67,14 +69,15 @@ export default function ServicesSnapshot() {
               </span>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Footer link */}
+        {/* Footer link (Static) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.6, ease: easeExpo, delay: 0.5 }}
-          className="mt-8 flex justify-end"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={inViewOnce}
+          className="mt-8 flex justify-center sm:justify-end"
         >
           <Link href="/services">
             <span className="group inline-flex items-center gap-2 text-[13px] font-semibold text-primary tracking-wider uppercase cursor-pointer hover:gap-3 transition-all duration-300">

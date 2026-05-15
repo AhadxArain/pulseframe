@@ -31,7 +31,7 @@ export default function ChatWindow({ onClose }: Props) {
       aria-label="Chat panel"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[140px] bg-gradient-to-b from-primary/15 via-primary/5 to-transparent" />
-      <div className="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-primary/20 blur-[80px]" />
+      <div className="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-primary/20 blur-[40px] sm:blur-[80px]" />
 
       <div className="relative flex-1 flex flex-col min-h-0">
         <AnimatePresence mode="wait">

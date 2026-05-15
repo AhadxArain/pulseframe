@@ -26,7 +26,7 @@ export default function StatsTickerBar() {
     <div className="w-full h-[46px] sm:h-[50px] bg-[#111] overflow-hidden flex items-center border-y border-white/[0.05]">
       <div
         className="flex items-center gap-5 w-max"
-        style={{ animation: "marquee 35s linear infinite" }}
+        style={{ animation: "marquee 40s linear infinite" }}
       >
         <Track />
         <Track />

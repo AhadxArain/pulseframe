@@ -25,14 +25,15 @@ export default function PageLayout({ children, title }: Props) {
 
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen bg-background text-foreground overflow-hidden selection:bg-primary/30 selection:text-white font-sans">
+      <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 selection:text-white font-sans">
         <Grain />
         <Navbar />
         <motion.main
           key={location}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.4 }}
+          className="relative"
         >
           {children}
         </motion.main>

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Play } from "lucide-react";
-import { easeExpo, fadeUp, inViewOnce } from "@/lib/motion";
+import { easeExpo, fadeInUp, inViewOnce } from "@/lib/motion";
 
 type Video = {
   id: string;
@@ -97,7 +97,7 @@ export default function Portfolio() {
     <section id="portfolio" ref={sectionRef} className="py-20 sm:py-24 md:py-28 lg:py-32 relative bg-background">
       <div className="container mx-auto px-5 sm:px-6 md:px-12 relative z-10 mb-12 sm:mb-16 lg:mb-20">
         <motion.div
-          variants={fadeUp}
+          variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
           className="max-w-2xl"

@@ -224,6 +224,7 @@
 
   html, body {
     @apply overflow-x-hidden;
+    scroll-behavior: auto !important;
   }
 
   body {
@@ -232,61 +233,69 @@
   }
 }
 
-/* === Cinematic motion keyframes === */
-@keyframes scroll {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(200%); }
-}
-
+/* === Cinematic motion keyframes (Optimized) === */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.333%); }
 }
 
-@keyframes aurora-drift {
-  0%, 100% { transform: translate3d(-10%, -5%, 0) scale(1); opacity: 0.55; }
-  33%      { transform: translate3d( 8%, -8%, 0) scale(1.1); opacity: 0.75; }
-  66%      { transform: translate3d(-6%,  6%, 0) scale(0.95); opacity: 0.6; }
-}
-
-@keyframes aurora-drift-slow {
-  0%, 100% { transform: translate3d( 12%,  8%, 0) scale(1); opacity: 0.4; }
-  50%      { transform: translate3d(-10%, -6%, 0) scale(1.15); opacity: 0.6; }
-}
-
 @keyframes waveform-bar {
-  0%, 100% { transform: scaleY(0.25); }
+  0%, 100% { transform: scaleY(0.4); }
   50%      { transform: scaleY(1); }
 }
 
 @keyframes pulse-ring {
   0%   { transform: scale(0.85); opacity: 0.7; }
-  80%  { transform: scale(1.6); opacity: 0; }
   100% { transform: scale(1.6); opacity: 0; }
 }
 
-@keyframes shimmer {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
+/* === Premium Button utilities === */
+.btn-premium {
+  @apply relative overflow-hidden transition-all duration-500 font-display font-bold uppercase tracking-[0.15em] text-[11px] sm:text-xs;
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(0, 100%, 45%) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 15px -1px rgba(255, 42, 42, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
-/* === Magnetic / Shimmer button utilities === */
-.btn-magnetic {
-  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 500ms cubic-bezier(0.16, 1, 0.3, 1),
-              color 500ms cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 500ms cubic-bezier(0.16, 1, 0.3, 1) !important;
-  will-change: transform;
+.btn-premium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px -2px rgba(255, 42, 42, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  filter: brightness(1.1);
+}
+
+.btn-premium:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-premium:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Updated Magnetic button */
+.btn-magnetic {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, box-shadow;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .btn-magnetic:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 10px 40px -8px hsl(var(--primary) / 0.55),
-                0 0 28px hsl(var(--primary) / 0.45);
-  }
-  .btn-magnetic:active {
-    transform: translateY(0) scale(0.99);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+      0 20px 40px -12px hsl(var(--primary) / 0.4),
+      0 0 20px hsl(var(--primary) / 0.3);
   }
 }
 

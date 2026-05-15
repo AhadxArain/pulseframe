@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Play } from "lucide-react";
-import { easeExpo, inViewOnce } from "@/lib/motion";
+import { fadeInUp, inViewOnce, staggerContainer } from "@/lib/motion";
 
 const WORKS = [
   { title: "Blackout Anthem", category: "Audio Branding", label: "01" },
@@ -11,17 +11,15 @@ const WORKS = [
 ];
 
 export default function FeaturedWork() {
-  const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, inViewOnce);
-
   return (
-    <section ref={ref} className="py-20 sm:py-24 md:py-28 lg:py-32 bg-[#0a0a0a]">
+    <section className="py-20 sm:py-24 md:py-28 lg:py-32 bg-[#0a0a0a]">
       <div className="container mx-auto px-5 sm:px-6 md:px-12">
-        {/* Header */}
+        {/* Header (Static) */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-          transition={{ duration: 0.8, ease: easeExpo }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={inViewOnce}
           className="mb-12 sm:mb-16"
         >
           <p className="text-[10px] tracking-[0.22em] uppercase text-primary font-semibold mb-4">
@@ -34,14 +32,18 @@ export default function FeaturedWork() {
           </h2>
         </motion.div>
 
-        {/* Work Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {/* Work Grid (Static) */}
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={inViewOnce}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+        >
           {WORKS.map((work, i) => (
             <motion.div
               key={work.title}
-              initial={{ opacity: 0, y: 28 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
-              transition={{ duration: 0.8, ease: easeExpo, delay: 0.1 + i * 0.1 }}
+              variants={fadeInUp}
               className="group relative aspect-[4/3] bg-[#111] overflow-hidden cursor-pointer"
             >
               {/* Cinematic dark placeholder gradient */}
@@ -68,7 +70,7 @@ export default function FeaturedWork() {
               </div>
 
               {/* Bottom info */}
-              <div className="absolute bottom-0 inset-x-0 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+              <div className="absolute bottom-0 inset-x-0 p-5 group-hover:translate-y-0 transition-transform duration-300">
                 <div className="text-[10px] uppercase tracking-[0.18em] text-primary font-semibold mb-1.5">
                   {work.category}
                 </div>
@@ -81,14 +83,15 @@ export default function FeaturedWork() {
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500" />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Footer link */}
+        {/* Footer link (Static) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.6, ease: easeExpo, delay: 0.5 }}
-          className="mt-8 flex justify-end"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={inViewOnce}
+          className="mt-8 flex justify-center sm:justify-end"
         >
           <Link href="/work">
             <span className="group inline-flex items-center gap-2 text-[13px] font-semibold text-primary tracking-wider uppercase cursor-pointer hover:gap-3 transition-all duration-300">

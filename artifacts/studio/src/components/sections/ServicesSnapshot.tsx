@@ -53,21 +53,22 @@ export default function ServicesSnapshot() {
           className="border-t border-white/10"
         >
           {ROWS.map((row, i) => (
-            <motion.div
-              key={row.num}
-              variants={fadeInUp}
-              className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 py-6 sm:py-7 border-b border-white/10 hover:border-primary/30 transition-colors duration-300"
-            >
-              <span className="text-[13px] font-bold text-primary font-display tracking-wider shrink-0 w-8">
-                {row.num}
-              </span>
-              <span className="text-[17px] sm:text-[19px] md:text-[21px] font-bold text-white font-display tracking-wide group-hover:text-white transition-colors sm:w-[260px] md:w-[300px] shrink-0">
-                {row.title}
-              </span>
-              <span className="text-[14px] text-white/55 leading-relaxed flex-1">
-                {row.desc}
-              </span>
-            </motion.div>
+            <Link key={row.num} href="/services">
+              <motion.div
+                variants={fadeInUp}
+                className="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 py-6 sm:py-7 border-b border-white/10 hover:border-primary/30 transition-colors duration-300 cursor-pointer"
+              >
+                <span className="text-[13px] font-bold text-primary font-display tracking-wider shrink-0 w-8">
+                  {row.num}
+                </span>
+                <span className="text-[17px] sm:text-[19px] md:text-[21px] font-bold text-white font-display tracking-wide group-hover:text-white transition-colors sm:w-[260px] md:w-[300px] shrink-0">
+                  {row.title}
+                </span>
+                <span className="text-[14px] text-white/55 leading-relaxed flex-1">
+                  {row.desc}
+                </span>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
 

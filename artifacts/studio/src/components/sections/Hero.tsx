@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import Waveform from "@/components/effects/Waveform";
 import { fadeInUp, staggerContainer, wordRise } from "@/lib/motion";
@@ -104,14 +105,15 @@ export default function Hero() {
           >
             View Work
           </Button>
-          <Button
-            onClick={() => scrollTo("#contact")}
-            variant="outline"
-            size="lg"
-            className="font-display font-bold uppercase tracking-[0.2em] text-[11px] rounded-none border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500 px-10 py-7 min-h-[56px]"
-          >
-            Get a Quote
-          </Button>
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full font-display font-bold uppercase tracking-[0.2em] text-[11px] rounded-none border-white/20 text-white hover:bg-white hover:text-black transition-all duration-500 px-10 py-7 min-h-[56px]"
+            >
+              Get a Quote
+            </Button>
+          </Link>
         </motion.div>
       </motion.div>
 

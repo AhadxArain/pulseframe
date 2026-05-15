@@ -3,7 +3,7 @@ import Hero from "@/components/sections/Hero";
 import StatsTickerBar from "@/components/sections/StatsTickerBar";
 import ServicesSnapshot from "@/components/sections/ServicesSnapshot";
 import FeaturedWork from "@/components/sections/FeaturedWork";
-import FeaturedTestimonial from "@/components/sections/FeaturedTestimonial";
+import TestimonialCarousel from "@/components/sections/TestimonialCarousel";
 import CtaBanner from "@/components/sections/CtaBanner";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       <StatsTickerBar />
       <ServicesSnapshot />
       <FeaturedWork />
-      <FeaturedTestimonial />
+      <TestimonialCarousel />
       <CtaBanner />
     </PageLayout>
   );
